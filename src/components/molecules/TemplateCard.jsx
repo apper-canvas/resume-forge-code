@@ -27,11 +27,11 @@ const TemplateCard = ({ template, isSelected, onSelect, onPreview }) => {
       }`}
       onClick={() => onSelect(template)}
     >
-      {/* Template Preview */}
-      <div className="aspect-resume bg-gradient-to-br from-surface-50 to-surface-100 relative overflow-hidden">
+{/* Template Preview */}
+      <div className="aspect-[3/4] bg-gradient-to-br from-surface-50 to-surface-100 relative overflow-hidden">
         {/* Enhanced template preview with category icons */}
         <div 
-          className="w-full h-full flex flex-col items-center justify-center text-surface-400 p-4"
+          className="w-full h-full flex flex-col items-center justify-center text-surface-400 p-3"
           style={{ backgroundColor: template.colors.primary + '10' }}
         >
           <div className="text-center">
@@ -51,23 +51,29 @@ const TemplateCard = ({ template, isSelected, onSelect, onPreview }) => {
             <p className="text-xs text-surface-500 mt-1">Template Preview</p>
           </div>
         </div>
-        {/* Overlay on hover */}
+{/* Overlay on hover */}
         <motion.div
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
-          className="absolute inset-0 bg-black/20 flex items-center justify-center"
+          className="absolute inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center"
         >
-          <Button
-            variant="primary"
-            size="sm"
-            icon="Eye"
-            onClick={(e) => {
-              e.stopPropagation();
-              onPreview(template);
-            }}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            Preview
-          </Button>
+            <Button
+              variant="primary"
+              size="sm"
+              icon="Eye"
+              onClick={(e) => {
+                e.stopPropagation();
+                onPreview(template);
+              }}
+              className="shadow-lg"
+            >
+              Preview
+            </Button>
+          </motion.div>
         </motion.div>
 
         {/* Selected Indicator */}
@@ -82,13 +88,13 @@ const TemplateCard = ({ template, isSelected, onSelect, onPreview }) => {
         )}
       </div>
 
-      {/* Template Info */}
-      <div className="p-4">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="font-heading font-semibold text-surface-900">{template.name}</h3>
+{/* Template Info */}
+      <div className="p-3">
+        <div className="flex items-center justify-between mb-1.5">
+          <h3 className="font-heading font-semibold text-surface-900 text-sm">{template.name}</h3>
           <span 
-            className="px-2 py-1 text-xs font-medium rounded-full"
-            style={{ 
+            className="px-2 py-0.5 text-xs font-medium rounded-full"
+            style={{
               backgroundColor: template.colors.primary + '20',
               color: template.colors.primary 
             }}
@@ -96,11 +102,10 @@ const TemplateCard = ({ template, isSelected, onSelect, onPreview }) => {
             {template.category}
           </span>
         </div>
-        
-        <p className="text-sm text-surface-600 mb-3">{template.description}</p>
+<p className="text-xs text-surface-600 mb-2">{template.description}</p>
         
 {/* Features with enhanced icons */}
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-0.5">
           {template.features.slice(0, 2).map((feature, index) => {
             // Feature-specific icons
             const getFeatureIcon = (featureText) => {
@@ -127,24 +132,24 @@ const TemplateCard = ({ template, isSelected, onSelect, onPreview }) => {
               return 'Sparkles';
             };
             
-            return (
+return (
               <span
                 key={index}
-                className="inline-flex items-center px-2 py-1 text-xs bg-surface-100 text-surface-700 rounded-md"
+                className="inline-flex items-center px-1.5 py-0.5 text-xs bg-surface-100 text-surface-700 rounded-md"
               >
                 <ApperIcon 
                   name={getFeatureIcon(feature)} 
-                  size={10} 
+                  size={8} 
                   className="mr-1" 
                   style={{ color: template.colors.primary }} 
                 />
                 {feature}
               </span>
             );
-          })}
+})}
           {template.features.length > 2 && (
             <span className="inline-flex items-center text-xs text-surface-500">
-              <ApperIcon name="MoreHorizontal" size={10} className="mr-1" />
+              <ApperIcon name="MoreHorizontal" size={8} className="mr-0.5" />
               +{template.features.length - 2}
             </span>
           )}
