@@ -1,0 +1,106 @@
+[
+  {
+    "Id": 1,
+    "name": "Modern Professional",
+    "preview": "/templates/modern-professional.jpg",
+    "category": "Professional",
+    "colors": {
+      "primary": "#2563EB",
+      "secondary": "#64748B",
+      "text": "#1E293B"
+    },
+    "description": "Clean and modern design perfect for corporate roles",
+    "features": ["Two-column layout", "Skills progress bars", "Icon highlights"]
+  },
+  {
+    "Id": 2,
+    "name": "Creative Designer",
+    "preview": "/templates/creative-designer.jpg",
+    "category": "Creative",
+    "colors": {
+      "primary": "#7C3AED",
+      "secondary": "#A855F7",
+      "text": "#374151"
+    },
+    "description": "Bold design for creative professionals and designers",
+    "features": ["Colorful accents", "Creative typography", "Portfolio section"]
+  },
+  {
+    "Id": 3,
+    "name": "Executive Leader",
+    "preview": "/templates/executive-leader.jpg",
+    "category": "Executive",
+    "colors": {
+      "primary": "#0F172A",
+      "secondary": "#475569",
+      "text": "#1E293B"
+    },
+    "description": "Sophisticated layout for senior executives",
+    "features": ["Elegant typography", "Achievement highlights", "Executive summary"]
+  },
+  {
+    "Id": 4,
+    "name": "Tech Minimalist",
+    "preview": "/templates/tech-minimalist.jpg",
+    "category": "Technology",
+    "colors": {
+      "primary": "#059669",
+      "secondary": "#6B7280",
+      "text": "#111827"
+    },
+    "description": "Clean minimalist design for tech professionals",
+    "features": ["Minimal design", "Technical skills focus", "GitHub integration"]
+  },
+  {
+    "Id": 5,
+    "name": "Healthcare Professional",
+    "preview": "/templates/healthcare-professional.jpg",
+    "category": "Healthcare",
+    "colors": {
+      "primary": "#DC2626",
+      "secondary": "#9CA3AF",
+      "text": "#374151"
+    },
+    "description": "Professional design for healthcare workers",
+    "features": ["Medical icons", "Certification highlights", "Clean layout"]
+  },
+  {
+    "Id": 6,
+    "name": "Academic Scholar",
+    "preview": "/templates/academic-scholar.jpg",
+    "category": "Academic",
+    "colors": {
+      "primary": "#7C2D12",
+      "secondary": "#A3A3A3",
+      "text": "#292524"
+    },
+    "description": "Traditional design for academic positions",
+    "features": ["Publications section", "Research highlights", "Academic formatting"]
+  },
+  {
+    "Id": 7,
+    "name": "Marketing Maven",
+    "preview": "/templates/marketing-maven.jpg",
+    "category": "Marketing",
+    "colors": {
+      "primary": "#EA580C",
+      "secondary": "#F97316",
+      "text": "#1C1917"
+    },
+    "description": "Dynamic design for marketing professionals",
+    "features": ["Brand-focused", "Campaign highlights", "Social media links"]
+  },
+  {
+    "Id": 8,
+    "name": "Financial Analyst",
+    "preview": "/templates/financial-analyst.jpg",
+    "category": "Finance",
+    "colors": {
+      "primary": "#1F2937",
+      "secondary": "#6B7280",
+      "text": "#111827"
+    },
+    "description": "Conservative design for finance professionals",
+    "features": ["Data visualization", "Financial metrics", "Professional layout"]
+  }
+]
