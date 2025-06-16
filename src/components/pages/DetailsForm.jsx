@@ -52,22 +52,31 @@ const DetailsForm = () => {
     return () => clearTimeout(timeoutId);
   }, [resumeData]);
 
-  const loadSavedData = async () => {
+const loadSavedData = async () => {
     setLoading(true);
     try {
       const savedData = await resumeService.load();
       if (savedData) {
         setResumeData(savedData);
-      }
-      
-      // Redirect if no template selected
-      if (!savedData?.selectedTemplate) {
-        toast.warning('Please select a template first');
+        
+        // Redirect if no template selected
+        if (!savedData.selectedTemplate) {
+          toast.warning('Please select a template first');
+          navigate('/');
+          return;
+        }
+      } else {
+        // No saved data found, redirect to template selection
+        toast.info('Please select a template to get started');
         navigate('/');
         return;
       }
     } catch (error) {
-      toast.error('Failed to load saved data');
+      console.error('Error loading saved data:', error);
+      toast.error('Failed to load saved data. Starting fresh.');
+      // Initialize with default data if loading fails
+      setResumeData(resumeService.getInitialData());
+      navigate('/');
     } finally {
       setLoading(false);
     }
@@ -133,7 +142,7 @@ const DetailsForm = () => {
     return true;
   };
 
-  const handleContinue = async () => {
+const handleContinue = async () => {
     if (!validateRequiredFields()) {
       return;
     }
@@ -144,7 +153,8 @@ const DetailsForm = () => {
       toast.success('Resume data saved successfully!');
       navigate('/download');
     } catch (error) {
-      toast.error('Failed to save resume data');
+      console.error('Error saving resume data:', error);
+      toast.error('Failed to save resume data. Please try again.');
     } finally {
       setLoading(false);
     }
