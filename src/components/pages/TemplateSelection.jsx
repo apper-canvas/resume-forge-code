@@ -16,7 +16,7 @@ const TemplateSelection = () => {
     loadSavedData();
   }, []);
 
-const loadSavedData = async () => {
+  const loadSavedData = async () => {
     try {
       const savedData = await resumeService.load();
       if (savedData?.selectedTemplate) {
@@ -24,11 +24,10 @@ const loadSavedData = async () => {
       }
     } catch (error) {
       console.error('Error loading saved data:', error);
-      // Continue without error notification as this is optional data
     }
   };
 
-const handleSelectTemplate = async (template) => {
+  const handleSelectTemplate = async (template) => {
     setSelectedTemplate(template);
     
     try {
@@ -41,8 +40,7 @@ const handleSelectTemplate = async (template) => {
       await resumeService.save(updatedData);
       toast.success(`${template.name} template selected!`);
     } catch (error) {
-      console.error('Error saving template selection:', error);
-      toast.error('Failed to save template selection. Please try again.');
+      toast.error('Failed to save template selection');
     }
   };
 
@@ -51,7 +49,7 @@ const handleSelectTemplate = async (template) => {
     toast.info(`Previewing ${template.name} template`);
   };
 
-const handleContinue = async () => {
+  const handleContinue = async () => {
     if (!selectedTemplate) {
       toast.warning('Please select a template first');
       return;
@@ -69,7 +67,6 @@ const handleContinue = async () => {
       
       navigate('/details');
     } catch (error) {
-      console.error('Error proceeding to details:', error);
       toast.error('Failed to proceed. Please try again.');
     } finally {
       setLoading(false);

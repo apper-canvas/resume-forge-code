@@ -20,7 +20,7 @@ const Download = () => {
     loadResumeData();
   }, []);
 
-const loadResumeData = async () => {
+  const loadResumeData = async () => {
     setLoading(true);
     try {
       const savedData = await resumeService.load();
@@ -31,8 +31,7 @@ const loadResumeData = async () => {
       }
       setResumeData(savedData);
     } catch (error) {
-      console.error('Error loading resume data:', error);
-      toast.error('Failed to load resume data. Redirecting to start.');
+      toast.error('Failed to load resume data');
       navigate('/');
     } finally {
       setLoading(false);
